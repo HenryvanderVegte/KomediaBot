@@ -1,0 +1,87 @@
+GetLectureTime Wann findet _ statt
+GetLectureTime Um wieviel Uhr findet _ statt
+GetLectureTime Um welche Uhrzeit findet _ statt
+GetLectureTime Wann ist die Veranstaltung _
+GetLectureTime Um wieviel Uhr ist die Veranstaltung _
+GetLectureTime Um welche Uhrzeit ist die Veranstaltung _
+
+GetLecturePlace Wo findet _ statt
+GetLecturePlace Wo _ die Vorlesung _
+GetLecturePlace In welchem Raum findet _ statt
+
+GetLectures Welche  _ Veranstaltungen _
+GetLectures Was für _ Veranstaltungen _
+GetLectures Welche  _ Vorlesungen _
+GetLectures Was für _ Vorlesungen _
+GetLectures Zeige  _ Veranstaltungen _
+GetLectures Zeige _ Vorlesungen _
+
+AddLectureToShedule Füge _ zu meinem Stundenplan hinzu
+AddLectureToShedule _ Stundenplan _ zu
+AddLectureToShedule _ trage _ in _ ein
+
+DeleteLectureFromShedule Lösche _ meinem Stundenplan
+DeleteLectureFromShedule Entferne _ meinem Stundeplan
+DeleteLectureFromShedule Bearbeite _ Stundenplan
+
+GetMyShedule Zeige _ meine Vorlesungen
+GetMyShedule _ meine Vorlesungen _
+GetMyShedule _ meine Veranstaltungen _
+GetMyShedule Zeige _ meinen Stundenplan
+
+GetRoom Wo ist Raum _
+GetRoom Wo ist der Raum _
+GetRoom Wo finde ich den Raum _
+
+GetMenu Was gibt es heute zu Essen
+GetMenu _ Speiseplan _
+GetMenu _ Mensa _
+GetMenu _ Mittagessen _
+
+GetFreeSoftware Welche Programme gibt es kostenlos _
+GetFreeSoftware Welche Software gibt es kostenlos _
+
+GetHowToUse Wie verwende ich _
+GetHowToUse Wie benutze ich _
+GetHowToUse Wie funktioniert der _
+GetHowToUse Wie funktioniert das _
+
+GetSemesterFee _ Semesterbeitrag _
+GetSemesterFee _ Semestergebühren _
+
+GetExamRegistration _ Prüfungsanmeldung _
+GetExamRegistration _ Prüfungen anmelden _
+GetExamRegistration _ Klausuren anmelden _
+GetExamRegistration _ Prüfung anmelden _
+GetExamRegistration _ Anmeldephase _ Prüfungen _
+GetExamRegistration _ Prüfungsanmeldephase _
+
+GetVPN _ VPN _
+GetVPN _ Virtual Private Network _
+GetVPN _ Cisco AnyConnect _
+GetVPN _ Openconnect _
+
+GetCertificateOfStudy _ Studienbescheinigung _
+
+GeneralWhere Wo _
+
+GetBotInformation Was kannst du
+GetBotInformation Wie funktionierst du
+GetBotInformation Welche Funktionen hast du
+
+GetTestSubjectHours _ Versuchspersonenstunden _
+GetTestSubjectHours _ Versuchsperson _
+GetTestSubjectHours _ Versuchspersonen _
+GetTestSubjectHours _ VPS _
+
+GetLearningGroup _ Lerngruppe _
+GetLearningGroup _ Lerngruppen _
+
+AnswerHello _ Hallo _
+AnswerHello _ Hi _
+AnswerHello _ Hey _
+AnswerHowAreYou Wie geht es dir
+AnswerHowAreYou Wie gehts
+AnswerHowAreYou Wie gehts dir
+AnswerHowAreYou Wie geht's
+AnswerHowAreYou Wie geht's dir

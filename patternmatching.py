@@ -170,8 +170,8 @@ def get_lecture_place():
     return True
 
 def get_menu():
-    global g_chat
-    menu = get_menu_as_string()
+    global g_chat, g_text
+    menu = get_menu_as_string(g_text)
     send_message_html(menu, g_chat)
     return True
 

@@ -1,4 +1,5 @@
-import datetime
+from datetime import datetime, time
+import time as T
 import urllib3
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
@@ -7,7 +8,7 @@ MENSA_BASE_URL = 'https://www.stw-edu.de'
 MENSA_DUISBURG_URL = 'https://www.stw-edu.de/gastronomie/standorte/mensen/mensen//show/mensa-campus-duisburg/'
 
 def get_menu_as_string(input_text):
-    date = datetime.datetime.now()
+    date = datetime.combine(datetime.today(), time.min)
     answer_introduction = "In der Hauptmensa in Duisburg gibt es heute: \n \n"
     if "gestern" in input_text:
         date -= datetime.timedelta(days=1)
@@ -22,27 +23,31 @@ def get_menu_as_string(input_text):
         date += datetime.timedelta(days=2)
         answer_introduction = "In der Hauptmensa in Duisburg gibt es übermorgen: \n \n"
 
-    parsed_date = str(date.strftime("%y-%m-%d"))
-    return get_menu_at_date(parsed_date, answer_introduction)
+    timestamp = int(T.mktime(date.timetuple()))
+    return get_menu_at_date(timestamp, answer_introduction)
 
-def get_menu_at_date(requested_date, answer_introduction):
+def get_menu_at_date(timestamp, answer_introduction):
     """
-    requested_date must be in the format yy-mm-dd
+    timestamp must be a unix timestamp at midnight of that day
     """
     try:
         http = urllib3.PoolManager()
 
         response = http.request('GET', MENSA_DUISBURG_URL)
         soup = BeautifulSoup(response.data.decode('utf-8'),"html5lib")
-        dataurl = soup.find(id='speisejs').get('data-url')
+        data_url = soup.find(id='speisejs').get('data-url')
 
-        menu_xml = http.request('GET', MENSA_BASE_URL + dataurl).data
+        menu_xml = http.request('GET', MENSA_BASE_URL + data_url).data
 
-        dayid = "plan-" + requested_date
-        meals = soup.find(id=dayid)
+        xml_root = ET.fromstring(menu_xml)
 
+        requested_node = None
+        for node in xml_root.find('tag'):
+            if node.attrib['timestamp'] == timestamp:
+                requested_node = node
+                break
 
-        if meals is None:
+        if requested_node is None:
             return "Leider ist für diesen Tag kein Speiseplan verfügbar"
 
         menu_as_string = answer_introduction

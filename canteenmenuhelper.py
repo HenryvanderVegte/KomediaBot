@@ -66,7 +66,7 @@ def get_menu_at_date(timestamp, answer_introduction):
             if price_students is None or not price_students.text:
                 continue
 
-            item_menu += " " + price_students.text
+            item_menu += " <b>" + price_students.text + "€</b>"
             item_menu += "\n\n"
             menu_as_string += item_menu
             has_menu = True

@@ -1,6 +1,10 @@
-import urllib3
-from bs4 import BeautifulSoup
 import datetime
+import urllib3
+import xml.etree.ElementTree as ET
+from bs4 import BeautifulSoup
+
+MENSA_BASE_URL = 'https://www.stw-edu.de'
+MENSA_DUISBURG_URL = 'https://www.stw-edu.de/gastronomie/standorte/mensen/mensen//show/mensa-campus-duisburg/'
 
 def get_menu_as_string(input_text):
     date = datetime.datetime.now()
@@ -28,12 +32,16 @@ def get_menu_at_date(requested_date, answer_introduction):
     try:
         http = urllib3.PoolManager()
 
-        url = 'http://studentenwerk.essen-duisburg.de/gastronomie/mensen/mensa-campus-duisburg/'
-        response = http.request('GET', url)
-
+        response = http.request('GET', MENSA_DUISBURG_URL)
         soup = BeautifulSoup(response.data.decode('utf-8'),"html5lib")
+        dataurl = soup.find(id='speisejs').get('data-url')
+
+        menu_xml = http.request('GET', MENSA_BASE_URL + dataurl).data
+
         dayid = "plan-" + requested_date
         meals = soup.find(id=dayid)
+
+
         if meals is None:
             return "Leider ist für diesen Tag kein Speiseplan verfügbar"
 
